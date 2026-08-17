@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <main className="container mx-auto">
           <Routes>
-            <Route path="/" element={<div className="p-8">Welcome to the Home Page!</div>} />
+            <Route path="/home" element={<div className="p-8">Welcome to the Home Page!</div>} />
             <Route path="/products" element={<Products />} />
             <Route path="/login" element={<div className="p-8">Login Page coming soon...</div>} />
             <Route path="/cart" element={<Cart />} />
