@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link to="/">E-Commerce</Link>
       </div>
       <div className="flex gap-6 items-center">
-        <Link to="/" className="hover:text-blue-600">Home</Link>
+        <Link to="/home" className="hover:text-blue-600">Home</Link>
         <Link to="/products" className="hover:text-blue-600">Products</Link>
         
         {/* Cart Link with conditional Badge */}
