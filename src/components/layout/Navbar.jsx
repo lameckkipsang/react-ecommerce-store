@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className="p-4 bg-gray-100 flex justify-between items-center shadow-sm mb-8">
       <div className="font-bold text-xl">
-        <Link to="/">E-Commerce</Link>
+        <Link to="/home">E-Commerce</Link>
       </div>
       <div className="flex gap-6 items-center">
         <Link to="/home" className="hover:text-blue-600">Home</Link>
