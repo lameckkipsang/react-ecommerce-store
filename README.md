@@ -2,7 +2,7 @@
 
 A modern, responsive e-commerce frontend application built to demonstrate core React concepts, global state management, and functional UI design.
 ## Live Demo
-🚀 **[Click here to view the live application](https://react-ecommerce-psi-lemon.vercel.app)**
+ **[Click here to view the live application](https://react-ecommerce-psi-lemon.vercel.app)**
 
 ## Features
 * **Dynamic Product Catalog:** Fetches and displays products in real-time from an external REST API (FakeStoreAPI).
