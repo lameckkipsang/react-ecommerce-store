@@ -45,7 +45,7 @@ export default function Checkout() {
         <form onSubmit={handleCheckout} className="flex flex-col gap-4">
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
-            <Input required placeholder="John Doe" />
+            <Input required placeholder="Lameck Kipsang" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Address</label>
