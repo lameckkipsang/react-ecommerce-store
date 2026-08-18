@@ -14,18 +14,15 @@ export default function Login() {
     e.preventDefault();
     setError('');
 
-    // Client-side password complexity validation
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters long.');
+    const existingUsers = JSON.parse(localStorage.getItem('ecommerce_users')) || [];
+    const validUser = existingUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (!validUser) {
+      setError('Invalid email or password. Please try again or register.');
       return;
     }
-    if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
-      setError('Password must contain at least one uppercase letter and one number.');
-      return;
-    }
-
-    // Simulate successful login and redirect to products
-    console.log('Authenticated:', email);
+    localStorage.setItem('ecommerce_session', JSON.stringify({ email }));
     navigate('/products');
   };
 
@@ -61,9 +58,6 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <p className="text-xs text-gray-500 mt-2">
-              Must be at least 8 characters, containing 1 uppercase letter and 1 number.
-            </p>
           </div>
 
           <Button type="submit" className="w-full mt-4" size="lg">
