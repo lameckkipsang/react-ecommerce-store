@@ -1,16 +1,28 @@
-# React + Vite
+# React E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce frontend application built to demonstrate core React concepts, global state management, and functional UI design.
+## Live Demo
+🚀 **[Click here to view the live application](https://react-ecommerce-35ggpagc6-lameck4.vercel.app/)**
 
-Currently, two official plugins are available:
+## Features
+* **Dynamic Product Catalog:** Fetches and displays products in real-time from an external REST API (FakeStoreAPI).
+* **Search & Filtering:** Utilizes controlled components to allow users to search for specific products instantly.
+* **Shopping Cart:** Employs the React Context API and `useReducer` to manage cart state globally, allowing users to add items, remove items, and view real-time price totals.
+* **Seamless Navigation:** Built with React Router DOM for instant, client-side routing between the Home, Products, Cart, and Checkout pages without browser reloads.
+* **Modern UI/UX:** Styled with Tailwind CSS and accessible, customizable components from shadcn/ui for a clean, professional user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+* **Framework:** React (initialized via Vite)
+* **Styling:** Tailwind CSS
+* **UI Components:** shadcn/ui (Radix UI)
+* **Routing:** React Router DOM
+* **State Management:** Context API
+* **Data Source:** FakeStoreAPI
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To run this project locally on your machine:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone [git@github.com:lameckkipsang/react-ecommerce-store.git]
