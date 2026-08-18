@@ -63,6 +63,9 @@ export default function Login() {
           <Button type="submit" className="w-full mt-4" size="lg">
             Sign In
           </Button>
+          <p className="text-center text-sm text-gray-600 mt-4">
+            Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register here</Link>
+          </p>
         </form>
       </Card>
     </div>
