@@ -1,12 +1,25 @@
-import { Link } from 'react-router-dom';
-import { useCart } from '../../context/CartContext'; // 1. Import your custom hook
-import { Badge } from '../ui/badge'; // 2. Import the shadcn badge component
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useCart } from '../../context/CartContext'; 
+import { Badge } from '../ui/badge'; 
+import { Button } from '../ui/button'; // Added Button import for Auth actions
 
 export default function Navbar() {
-  // 3. Extract the cart state
   const { cart } = useCart();
-  
-  // 4. Calculate total items (this correctly adds up the quantities of everything in the cart)
+  const navigate = useNavigate();
+  const location = useLocation(); // Forces Navbar to re-render on route change
+
+  // Check if user is currently logged in
+  const session = localStorage.getItem('ecommerce_session');
+
+  const handleLogout = () => {
+    // 1. Remove the session from our simulated database
+    localStorage.removeItem('ecommerce_session');
+    
+    // 2. Redirect the user back to the login page
+    navigate('/login');
+  };
+
+  // Calculate total items (this correctly adds up the quantities of everything in the cart)
   const totalItems = cart.cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -29,7 +42,19 @@ export default function Navbar() {
           )}
         </Link>
         
-        <Link to="/login" className="hover:text-blue-600">Login</Link>
+        {/* Conditional Authentication Rendering */}
+        {session ? (
+          <Button variant="outline" onClick={handleLogout}>
+            Logout
+          </Button>
+        ) : (
+          <div className="flex gap-4 items-center">
+            <Link to="/login" className="hover:text-blue-600">Login</Link>
+            <Link to="/register">
+              <Button>Register</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
