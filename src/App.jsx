@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProtectedRoute from './components/layout/ProtectedRoute';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/login" element={<Login/>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
             <Route path="/register" element={<Register />} />
           </Routes>
         </main>
