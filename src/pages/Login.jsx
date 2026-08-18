@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -64,7 +64,7 @@ export default function Login() {
             Sign In
           </Button>
           <p className="text-center text-sm text-gray-600 mt-4">
-            Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register here</Link>
+            Don't have an account? <Link to="/pages/register" className="text-blue-600 hover:underline">Register here</Link>
           </p>
         </form>
       </Card>
