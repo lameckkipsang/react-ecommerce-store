@@ -25,4 +25,4 @@ To run this project locally on your machine:
 
 1. Clone the repository:
    ```bash
-   git clone [git@github.com:lameckkipsang/react-ecommerce-store.git]
+   git clone git@github.com:lameckkipsang/react-ecommerce-store.git
