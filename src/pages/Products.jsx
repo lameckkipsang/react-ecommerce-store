@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useCart } from '../context/CartContext'; // 1. Import your custom Context hook
+import { useState, useEffect, useCallback, useMemo } from 'react'; 
+import { useCart } from '../context/CartContext'; 
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -9,7 +9,6 @@ export default function Products() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   
-  // 2. Extract the dispatch function from your global state
   const { dispatch } = useCart(); 
 
   useEffect(() => {
@@ -25,9 +24,17 @@ export default function Products() {
       });
   }, []);
 
-  const filteredProducts = products.filter(product => 
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  //useCallback
+  const handleAddToCart = useCallback((product) => {
+    dispatch({ type: 'ADD_TO_CART', payload: product });
+  }, [dispatch]);
+
+  // Memoize filtered products so search doesn't lag
+  const filteredProducts = useMemo(() => {
+    return products.filter(product => 
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [products, searchTerm]);
 
   return (
     <div className="p-8">
@@ -60,10 +67,9 @@ export default function Products() {
               
               <div className="mt-4">
                 <p className="text-xl font-bold mb-4">${product.price.toFixed(2)}</p>
-                {/* 3. Wire up the button to send the product data to your Cart Context */}
                 <Button 
                   className="w-full"
-                  onClick={() => dispatch({ type: 'ADD_TO_CART', payload: product })}
+                  onClick={() => handleAddToCart(product)}
                 >
                   Add to Cart
                 </Button>
