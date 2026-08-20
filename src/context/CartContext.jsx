@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer, useContext, useMemo } from 'react';
 
 // 1. Set the initial state of the cart
 const initialState = {
@@ -59,8 +59,12 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
+  const contextValue = useMemo(() => {
+    return { cart: state, dispatch };
+  }, [state]); 
+
   return (
-    <CartContext.Provider value={{ cart: state, dispatch }}>
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );
